@@ -128,7 +128,7 @@ const ChatInput=({sendMessage,loading})=>{
 
 const fetchResponse=async(chat)=>{
   try{
-      const response=await fetch('http://localhost:5000/chat',{
+      const response=await fetch('https://vama.vercel.app/chat',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
