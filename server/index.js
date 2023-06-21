@@ -224,7 +224,8 @@ app.get('/isEligibleWithSession',(req,res)=>{
     sessionCollection.find({session:JSON.stringify(req.session)}).then((res1)=>{
         if(res1.length==0) //no session document/session expired
         {
-            res.status(404).send('Not eligible')
+            //res.status(404).send('Not eligible')
+            res.send("Hello")
         }else{
          // res.send('Eligible for this page')
             res.send(req.session) 
