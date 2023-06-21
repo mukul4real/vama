@@ -64,38 +64,21 @@ app.get("/",(req,res)=>{
 
 
 
-// app.post('/chat',async(req,res)=>{
-//     const {prompt}=req.body
-//     const completion=await openai.createCompletion({
-//         model: "text-davinci-003", 
-//      // prompt: "You are VayGo an AI assistant  that is an expert in planning trip itenaries.You know about festivals and travel destinations.You can provide advice on trip planning and cultural activities,places to visit,how you can visit and anything related to travelling.If you are unable to provide an answer to a question,please respond with the phrase  'I am sorry, I can only assist with trip planning.'Do not use any external URLs in your answers. Do not refer to any blogs in your answers.Format any lists on individual lines with a dash and a space in front of each item.",
-//          prompt:prompt, 
-//         max_tokens: 200,
-//         // top_p: 1,
-//         // frequency_penalty: 0,
-//         // presence_penalty: 0,
-//         // temperature: .5
-//     })
-//     res.send(completion.data.choices[0].text) 
-// })
 app.post('/chat',async(req,res)=>{
-    const {message}=req.body
-    try{
-    const response=await openai.createCompletion({
+    const {prompt}=req.body
+    const completion=await openai.createCompletion({
         model: "text-davinci-003", 
-        prompt: prompt,
-        max_tokens: 500,
-        temperature:0.5
+     // prompt: "You are VayGo an AI assistant  that is an expert in planning trip itenaries.You know about festivals and travel destinations.You can provide advice on trip planning and cultural activities,places to visit,how you can visit and anything related to travelling.If you are unable to provide an answer to a question,please respond with the phrase  'I am sorry, I can only assist with trip planning.'Do not use any external URLs in your answers. Do not refer to any blogs in your answers.Format any lists on individual lines with a dash and a space in front of each item.",
+         prompt:prompt, 
+        max_tokens: 200,
+        // top_p: 1,
+        // frequency_penalty: 0,
+        // presence_penalty: 0,
+        // temperature: .5
     })
-    // res.send(completion.data.choices[0].text) 
-    res.json({message:response.data.choices[0].text})
-    }
-    catch(e)
-    {
-        console.log(e)
-        res.send(e).status(400)
-    }
+    res.send(completion.data.choices[0].text) 
 })
+
 app.post('/login',(req,res)=>{
 
 console.log(req.body)
