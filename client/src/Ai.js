@@ -19,7 +19,7 @@ export function Ai()
     
     // communicate with API
     // post input value 'prompt' to API end point  
-    axios.post("/chat", { prompt })
+    axios.post("https://vama.vercel.app/chat", { prompt })
       .then((res) => {
         setResponse(res.data);
         setLoading(false);
